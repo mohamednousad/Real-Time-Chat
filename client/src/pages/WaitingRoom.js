@@ -25,7 +25,7 @@ const WaitingRoom = () => {
           }
         } catch (err) {
           console.error("Error creating session:", err);
-          setError(err);
+          setError("Error connecting to the server.");
         } finally {
           setLoading(false);
         }
@@ -50,7 +50,7 @@ const WaitingRoom = () => {
       } else {
         createTokenAndNavigate();
       }
-    }, 2000); // 2-second delay
+    }, 5000); // 5-second delay
 
     return () => clearTimeout(timer); // Cleanup timer
   }, [roomId, navigate]);

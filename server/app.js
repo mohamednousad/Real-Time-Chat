@@ -14,4 +14,16 @@ app.use("/api", routes);
 
 connectDB();
 
+app.use("*", (req, res, next) => {
+  res.status(404).json({ error: "API Not Found" });
+});
+
+// Error Handling
+app.use((err, req, res, next) => {
+  console.error("❌ Error:", err.stack);
+  res
+    .status(500)
+    .json({ message: "Internal Server Error", error: err.message });
+});
+
 module.exports = app;
