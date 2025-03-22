@@ -8,7 +8,21 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use((req, res, next) => {
+  const allowedOrigins = [
+    "http://localhost:3000", // Local development
+    "https://securedchat.vercel.app", // Production
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 app.use("/api", routes);
 
