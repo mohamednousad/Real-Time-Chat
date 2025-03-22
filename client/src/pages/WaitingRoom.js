@@ -25,7 +25,7 @@ const WaitingRoom = () => {
           }
         } catch (err) {
           console.error("Error creating session:", err);
-          setError("Error connecting to the server.");
+          setError(err);
         } finally {
           setLoading(false);
         }
