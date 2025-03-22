@@ -50,7 +50,7 @@ const WaitingRoom = () => {
       } else {
         createTokenAndNavigate();
       }
-    }, 5000); // 5-second delay
+    }, 2000); // 2-second delay
 
     return () => clearTimeout(timer); // Cleanup timer
   }, [roomId, navigate]);
