@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const MessageSchema = new mongoose.Schema(
   {
-    meetingId: { type: String, required: true },  // Links to a specific meeting
-    sender: { type: String, required: true },
+    roomId: { type: String, required: true },
+    senderId: { type: String, required: true },
     message: { type: String, required: true },
   },
   { timestamps: true }
