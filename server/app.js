@@ -8,15 +8,16 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-const HOST = "https://securedchat.vercel.app" || "http://localhost:3000";
-// Middleware
-app.use(express.json());
+
+const HOSTS = ["https://securedchat.vercel.app", "http://localhost:3000"];
+
 app.use(
   cors({
-    origin: HOST,
+    origin: HOSTS,
     credentials: true,
   })
 );
+
 app.use("/api", routes);
 
 connectDB();
