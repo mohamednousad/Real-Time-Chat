@@ -15,6 +15,8 @@ app.use(
   cors({
     origin: HOSTS,
     credentials: true,
+    methods: ["GET", "POST", "OPTIONS"], // Allow necessary methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
   })
 );
 
